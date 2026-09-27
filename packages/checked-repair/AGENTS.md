@@ -18,6 +18,8 @@ stay fixed. `tests` and `cli` are reviewed command slots; `agent` is an ordinary
 Agent slot. No installation, credentials, network or live original writes.
 Progress is optional and not acceptance. Cancellation and uncertain command work
 do not authorize correction. Keep unsuccessful proposals and identity evidence.
+Operational failures retain method evidence and supplied collaborator details
+separately in `details.operationDetails`; neither is a passing verdict.
 
 ## Work Guidance
 

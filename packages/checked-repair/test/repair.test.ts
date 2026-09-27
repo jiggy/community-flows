@@ -40,6 +40,7 @@ async function exercise(
     truncated?: boolean
     wrongIdentity?: boolean
     commandFailure?: string
+    commandFailureDetails?: RunContext['input']
   } = {},
 ) {
   const original = structuredClone(input)
@@ -67,7 +68,12 @@ async function exercise(
           },
         }
       }
-      if (options.commandFailure && agents > 0) throw new OperationError(options.commandFailure)
+      if (options.commandFailure && agents > 0)
+        throw new OperationError(
+          options.commandFailure,
+          'Command stopped.',
+          options.commandFailureDetails,
+        )
       const data = request.input as unknown as {
         files: Record<string, string>
         stdin: string
@@ -162,6 +168,27 @@ test('uncertain, cancelled and expired command work never trigger a second propo
       const evidence = failure.details as unknown as { attempts: unknown[] }
       expect(evidence.attempts).toHaveLength(1)
     }
+  }
+})
+test('operational failure retains collaborator details without overwriting method evidence', async () => {
+  const details = {
+    command: { cleanup: 'complete', stopReason: 'cancelled' },
+    attempts: ['not method attempts'],
+  }
+  try {
+    await exercise(inputs[0]!, { commandFailure: 'CANCELLED', commandFailureDetails: details })
+    throw new Error('Expected failure')
+  } catch (error) {
+    expect(error).toBeInstanceOf(OperationError)
+    const failure = error as OperationError
+    expect(failure.code).toBe('CANCELLED')
+    expect(failure.message).toBe('Command stopped.')
+    expect(failure.details).toMatchObject({
+      baseDigest: digest(inputs[0]!.files),
+      operationDetails: details,
+    })
+    expect((failure.details as { attempts: unknown[] }).attempts).toHaveLength(1)
+    expect(details.attempts).toEqual(['not method attempts'])
   }
 })
 test('source and proposal bounds protect acceptance files and exact existing edit paths', () => {

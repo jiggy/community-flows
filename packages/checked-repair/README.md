@@ -60,6 +60,8 @@ Both settings keep the same acceptance. `done` requires baseline reproduction,
 a successful repository command and every independent case. `blocked` retains
 unsuccessful work; `limit` retains the Agent limit. SDK failures throw and can
 carry settled evidence in their details. Root cancellation remains unsuccessful.
+`details.operationDetails` preserves any details supplied by the failed
+collaborator alongside the method's attempts. Missing evidence is not invented.
 
 The optional `progress` sender emits bounded phases, not test verdicts. A parent
 chooses whether to connect it. Progress failure need not stop useful repair work.
