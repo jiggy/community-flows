@@ -1,0 +1,5 @@
+node_modules/
+.jig/
+*.tgz
+dist/
+.tmp/

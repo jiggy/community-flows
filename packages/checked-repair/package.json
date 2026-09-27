@@ -1,0 +1,35 @@
+{
+  "name": "@jigging/checked-repair-flow",
+  "version": "0.1.0-alpha.0",
+  "description": "Bounded source repair with independent captured-behavior checks",
+  "license": "MPL-2.0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiggy/community-flows.git",
+    "directory": "packages/checked-repair"
+  },
+  "exports": {
+    "./policy": "./policy.ts",
+    "./repair": "./repair.ts",
+    "./evidence": "./evidence.ts"
+  },
+  "files": [
+    "FLOW.ts",
+    "FLOW.meta.json",
+    "FLOW.contract.json",
+    "settings.schema.json",
+    "contracts",
+    "repair.ts",
+    "policy.ts",
+    "evidence.ts",
+    "README.md",
+    "MAINTAINERS.md",
+    "EVIDENCE.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "@jigging/flow": "0.1.0-alpha.13",
+    "@jigging/agent-method": "0.1.0-alpha.5"
+  }
+}
