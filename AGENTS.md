@@ -10,7 +10,8 @@ maturity guarantee. Applications and operators own consequences and authority.
 
 Each package owns its implementation, offline contracts, README, maintainers,
 tests, evidence and limitations. Shared tooling checks packaging, not model
-correctness or host containment. Jig's examples remain self-contained elsewhere.
+correctness or host containment. Jig examples own their application wiring and
+policy; composition examples may consume these packages through public dependencies.
 `test/packed.test.ts` installs complete local archives into a fresh ordinary
 consumer and checks exports and descriptor closures without provider calls.
 

@@ -18,7 +18,9 @@ These source packages are not published to npm. Copy a complete package into
 your own workspace or install a locally packed archive. Package READMEs show
 ordinary Jig wiring; the methods use public FLOW interfaces, not host-private
 imports. Another host must independently support their required contracts.
-Jig's teaching examples remain complete projects, not consumers of this repository.
+Jig's foundational examples keep their demonstrated methods local. Composition
+examples may consume these packages through ordinary dependencies while keeping
+application wiring, checks and operator grants local. No sibling checkout is required.
 
 ## Develop
 
