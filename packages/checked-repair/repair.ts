@@ -174,7 +174,7 @@ async function repairWithProgress(
       if (attempt.evaluation.accepted)
         return await finish(
           'done',
-          'The multi-file patch passes the repository command and independent acceptance cases.',
+          'The proposed repair passes the repository command and independent acceptance cases.',
         )
     }
     return await finish(

@@ -67,6 +67,22 @@ The root application owns file capture, patch export, checkpoints and human
 review. Keep original files and acceptance cases unchanged; inspect returned
 identities and evidence before describing any proposal as ready.
 
+## Optional library use
+
+The same method is exported as
+`import { repair } from '@jigging/checked-repair-flow/repair'`.
+`repair(run)` takes the ordinary Run context: `input`, `signal`, `call`,
+`channels`, and optional `settings`. It returns the same `{ outcome, output }`.
+`/policy` exports input/proposal validation, candidate construction, canonical
+`digest(value)` and UTF-8 `sha256(text)`; `/evidence` exports acceptance validation.
+
+An in-process test can supply controlled `call` replies, as the package tests do.
+Command replies must match the full Project Command contract in `contracts/`,
+including candidate/input identities and settled termination. Synthetic records
+check method behavior only: hashes do not establish that commands executed or
+were contained. Using these library functions grants no host authority. Use the
+ordinary admitted Flow path above for actual Agent and command execution.
+
 ## Bounds and limitations
 
 One issue, 1–16 text files totaling 64 KiB, 1–8 existing editable `src/*.ts` or

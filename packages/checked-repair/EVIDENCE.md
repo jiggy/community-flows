@@ -21,6 +21,23 @@ host's support, or production readiness. No live model campaign is part of this
 collection's initial checks. A fresh installed consumer assessment is a separate
 qualification; retained records must identify artifacts and any assistance.
 
+## Installed consumer assessment — 2026-09-27
+
+A fresh consumer installed the archive from collection revision `786fd29` using
+only packaged documentation, contracts and public dependencies. It reused the
+unchanged method for warehouse totals and catalog slugs with separately fixed
+acceptance cases: the first returned `done`; the second retained a `blocked`
+proposal despite a synthetic passing repository command. Originals and cases
+remained unchanged, and identities matched independently computed hashes.
+
+This assessed installed library reuse with controlled Agent replies and synthetic
+command records, not an admitted host Run, actual command execution or live model
+quality. Consumer filesystem separation was instructional, not sandbox-enforced.
+The only assistance was the assignment, archive paths, hashes and access limits.
+The assessed repair archive's SHA-256 was
+`f578d9d5fda98a998be79d2fd3e6984c2faca15ed6ad257a11cbe305d15c8029`.
+Later wording/documentation corrections do not retroactively change that artifact.
+
 Required authority: an ordinary Agent route and reviewed contained Bun command
 slots. No provider credentials, network or filesystem authority enter this Flow.
 Host command collection is trusted for termination/bytes, not semantic success.

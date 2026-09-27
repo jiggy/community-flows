@@ -72,6 +72,15 @@ judgment, including through instruction-like text. Supply only application-owned
 reviewed descriptions. Membership validation limits the returned ID; it does not
 make a candidate suitable, neutralize prompt injection, or authorize dispatch.
 
+## Optional library use
+
+`/route` exports `route(run)` with the same Run input, signal and call interface
+as the Flow entrypoint. `/decision` exports input validation and
+`checkRoutingResult(value, candidates)` for validating a result against the
+caller's exact candidate set. These are the same implementations the Flow uses,
+not another routing protocol. Controlled in-process replies test boundary
+behavior; they neither invoke a provider nor qualify semantic judgment.
+
 ## Bounds and evidence
 
 Input is exactly `{ task, candidates }`: at most 16 candidates, each exactly
@@ -88,7 +97,5 @@ behavior. Neither a valid ID nor a reason proves the selected method is suitable
 This is bounded semantic dispatch, not catalogue discovery, installation, or an
 authority grant. Controlled responses test mechanics; live evaluation measures
 judgment separately. Do not use a router result as a permissions or policy check.
-
-
 See [maintainers](MAINTAINERS.md), [evidence and limitations](EVIDENCE.md), and
 [MPL-2.0](LICENSE). Collection membership is not a trust or maturity guarantee.

@@ -5,8 +5,8 @@ import {
   digest,
   parseInput,
   parseProposal,
-  sha256,
   type RepairInput,
+  sha256,
 } from '../policy.ts'
 import { repair } from '../repair.ts'
 
@@ -128,6 +128,9 @@ test('the unchanged method handles two unrelated callers with caller-owned accep
     expect(output.baseDigest).toBe(digest(input.files))
     expect(output.acceptanceDigest).toBe(digest(input.cases))
     expect(output.attempts[0]?.evaluation.accepted).toBe(true)
+    expect((result.output as { reason: string }).reason).toBe(
+      'The proposed repair passes the repository command and independent acceptance cases.',
+    )
   }
 })
 test('one proposal stops after failure; two allow only one evidence-driven correction', async () => {
